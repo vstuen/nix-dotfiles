@@ -42,6 +42,7 @@ in
   # release notes.
   home.stateVersion = "24.05"; # Please read the comment before changing.
 
+
   fonts.fontconfig.enable = true;
 
   home.packages =
@@ -142,6 +143,9 @@ in
         teams-for-linux # unofficial teams client for linux
         slack # want the latest version
         eksctl # need unstable version to get newest k8s versions
+
+        # Gamedev 
+        godot
 
         (azure-cli.withExtensions [
           azure-cli.extensions.bastion
