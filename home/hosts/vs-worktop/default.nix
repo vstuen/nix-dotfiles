@@ -1,4 +1,4 @@
-{
+{pkgs, ...}: {
   imports = [
     ../../modules/common
     ../../modules/gnome
@@ -8,7 +8,7 @@
   home.packages = with pkgs; [
       zoom-us # zoom client
   ];
-  
+
   programs.fish.shellAliases = {
     aws-ssm-jump = "aws ssm start-session --target i-05e21e3029568146c --profile prod";
     aws-ssm-mw-prod1a = "aws --profile prod ssm start-session --target i-0f427d706f4c5d1a3";
