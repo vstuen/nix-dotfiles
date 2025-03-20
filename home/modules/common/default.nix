@@ -70,6 +70,7 @@ in
       distrobox
       lsof
       httpie
+      meld # simple merge tool
 
       vlc
       libation # Audible audiobook manager
