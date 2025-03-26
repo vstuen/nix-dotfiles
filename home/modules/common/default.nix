@@ -144,6 +144,8 @@ in
         teams-for-linux # unofficial teams client for linux
         slack # want the latest version
         obsidian # markdown notes
+        anytype # local-first, source-available PKM
+
         ## Dev
         eksctl # need unstable version to get newest k8s versions
 
