@@ -75,7 +75,6 @@ in
       vlc
       libation # Audible audiobook manager
 
-      obsidian # markdown notes
       copyq # clipboard manager
       pavucontrol # pulse audio volume control
       genymotion
@@ -141,8 +140,11 @@ in
 
       ### Unstable
       (with pkgs-unstable; [
+        ## Productivity and work
         teams-for-linux # unofficial teams client for linux
         slack # want the latest version
+        obsidian # markdown notes
+        ## Dev
         eksctl # need unstable version to get newest k8s versions
 
         # Gamedev 
