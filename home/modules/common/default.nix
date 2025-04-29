@@ -69,6 +69,7 @@ in
       btop # system monitor
       inetutils # telnet, whois etc
       asciinema # terminal recorder
+      kooha # screen recorder with wayland support
       distrobox
       lsof
       httpie
