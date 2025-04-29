@@ -162,7 +162,6 @@ in
       ]);
 
   programs.firefox.enable = true;
-  programs.firefox.package = pkgs.firefox-devedition;
 
   programs.chromium = {
     enable = true;
