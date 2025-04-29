@@ -124,7 +124,6 @@ in
       nixpkgs-fmt
       nixfmt-rfc-style
       gcc
-      bruno
 
       # Fonts
       font-awesome
@@ -150,6 +149,7 @@ in
         anytype # local-first, source-available PKM
 
         ## Dev
+        bruno # local postman alternative
         eksctl # need unstable version to get newest k8s versions
 
         # Gamedev 
