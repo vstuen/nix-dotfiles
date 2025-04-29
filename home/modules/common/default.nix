@@ -25,6 +25,8 @@ in
     ../fish
   ];
 
+  services.home-manager.autoExpire.enable = true;
+
   home.username = "${username}";
   home.homeDirectory = "/home/${username}";
   home.sessionVariables = { };
