@@ -36,6 +36,9 @@
       gc = "git commit";
       gp = "git push";
       gP = "git pull";
+      gf = "git fetch";
+      gl = "git log";
+      glo = "git log --oneline";
     };
 
     plugins = [
