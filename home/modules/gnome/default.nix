@@ -18,6 +18,7 @@
     guake # drop-down terminal
     catppuccin-gtk
     xclip
+    resources # system monitoring (GTK, looks gnome-native)
   ];
 
   services.flameshot = {
