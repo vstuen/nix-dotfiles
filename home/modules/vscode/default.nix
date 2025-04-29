@@ -10,7 +10,7 @@
       k--kato.intellij-idea-keybindings
       marp-team.marp-vscode
       mkhl.direnv
-      ms-dotnettools.csharp
+      # ms-dotnettools.csharp
       ms-python.python
       ms-vscode-remote.remote-ssh
       tailscale.vscode-tailscale
