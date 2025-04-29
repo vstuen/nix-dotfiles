@@ -124,6 +124,7 @@ in
       nixpkgs-fmt
       nixfmt-rfc-style
       gcc
+      qrencode  # QR code generator
 
       # Fonts
       font-awesome
