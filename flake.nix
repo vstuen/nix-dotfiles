@@ -33,6 +33,7 @@
   outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, vstuen-scripts, ... }@inputs:
     let
       lib = nixpkgs.lib;
+      unstable-lib = nixpkgs-unstable.lib;
       system = "x86_64-linux";
       pkgs = import nixpkgs {
         inherit system;
@@ -78,6 +79,21 @@
             };
           };
         };
+
+        vs-nixbox = unstable-lib.nixosSystem {
+          inherit system;
+          modules = [
+            ./nixos/hosts/vs-nixbox
+            inputs.catppuccin.nixosModules.catppuccin
+          ];
+          specialArgs = {
+            inherit pkgs-unstable username;
+            customHostConfig = {
+              hostName = "vs-nixbox";
+              hostId = "a616c78e";
+            };
+          };
+        };
       };
 
       homeConfigurations = {
@@ -92,6 +108,14 @@
         "vegard@vs-worktop" = hmlib.homeManagerConfiguration {
           inherit pkgs;
           modules = [ ./home/hosts/vs-worktop ];
+          extraSpecialArgs = {
+            inherit inputs pkgs-unstable username vstuen-scripts;
+          };
+        };
+
+        "vegard@vs-nixbox" = hmlib.homeManagerConfiguration {
+          pkgs = pkgs-unstable;
+          modules = [ ./home/hosts/vs-nixbox ];
           extraSpecialArgs = {
             inherit inputs pkgs-unstable username vstuen-scripts;
           };

@@ -285,15 +285,14 @@
         ]
       },
       "locked": {
-        "lastModified": 1,
-        "narHash": "sha256-UBNTTzIg4Tjzn3j0vbCxfsYHg54J3ZDpklj09Jby34o=",
         "path": "./home/modules/scripts",
         "type": "path"
       },
       "original": {
         "path": "./home/modules/scripts",
         "type": "path"
-      }
+      },
+      "parent": []
     },
     "zen-browser": {
       "inputs": {

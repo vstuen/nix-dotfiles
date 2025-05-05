@@ -155,6 +155,7 @@
     unzip
     p7zip
     ripgrep
+    pciutils
   ])
   ++
   (with pkgs-unstable; [
