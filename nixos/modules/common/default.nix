@@ -2,14 +2,20 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ config, lib, pkgs-unstable, pkgs, customHostConfig, username, ... }:
+{
+  config,
+  lib,
+  pkgs-unstable,
+  pkgs,
+  customHostConfig,
+  username,
+  ...
+}:
 
 {
-  # Now handled by flake:
-  # imports =
-  #   [ # Include the results of the hardware scan.
-  #     ./hardware-configuration.nix
-  #   ];
+  imports = [
+    ../docker
+  ];
 
   # Enable support for Flakes
   nix = {
@@ -32,14 +38,12 @@
 
   # disable the wait online service, as it has started causing switch rebuild to fail
   # for more info see: https://github.com/NixOS/nixpkgs/issues/180175
-  # another workaround might be to manually set the service to not run nm-online with the -s flag, 
+  # another workaround might be to manually set the service to not run nm-online with the -s flag,
   # which makes it wait for the NetworkManager service.
   systemd.services.NetworkManager-wait-online.enable = false;
 
-
   # Set your time zone.
   time.timeZone = "Europe/Oslo";
-
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
@@ -59,17 +63,16 @@
     autorun = true;
   };
 
-
   services.tailscale = {
     enable = true;
 
     extraUpFlags = [
-      # "--ssh" 
+      # "--ssh"
 
     ];
   };
 
-  # Thunderbolt 
+  # Thunderbolt
   services.hardware.bolt.enable = true;
 
   # Enable CUPS to print documents.
@@ -79,7 +82,6 @@
     nssmdns4 = true;
     openFirewall = true;
   };
-
 
   ### Sound
   security.rtkit.enable = true;
@@ -100,8 +102,8 @@
         ids = [ "*" ];
         settings = {
           global = {
-            # Make the tap action timeout on 200 ms for overloads, 
-            # so that it won't be activated if held down for longer 
+            # Make the tap action timeout on 200 ms for overloads,
+            # so that it won't be activated if held down for longer
             # (which is the default behavior)
             overload_tap_timeout = 200;
           };
@@ -188,13 +190,13 @@
     polkitPolicyOwners = [ username ];
   };
   environment.etc = {
-      "1password/custom_allowed_browsers" = {
-        text = ''
+    "1password/custom_allowed_browsers" = {
+      text = ''
         .zen-wrapped
-        '';
-        mode = "0755";
-      };
+      '';
+      mode = "0755";
     };
+  };
 
   programs.appgate-sdp.enable = true;
   programs.command-not-found.enable = true;
@@ -207,20 +209,9 @@
     "inode/directory" = "thunar.desktop";
   };
 
-  # Virtualization 
+  # Virtualization
   virtualisation.libvirtd.enable = true;
   programs.virt-manager.enable = true;
-  virtualisation.podman = {
-    enable = true;
-  };
-
-  virtualisation.docker = {
-    enable = true;
-    rootless = {
-      enable = true;
-      setSocketVariable = true;
-    };
-  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -247,7 +238,12 @@
 
   # Open ports in the firewall.
   networking.firewall = {
-    allowedTCPPorts = [ 22 3000 8080 8081 ];
+    allowedTCPPorts = [
+      22
+      3000
+      8080
+      8081
+    ];
     allowPing = true;
   };
 
@@ -285,4 +281,3 @@
   # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
   system.stateVersion = "24.05"; # Did you read the comment?
 }
-
