@@ -35,6 +35,7 @@
 
   # Additional hardware configuration
   hardware.logitech.wireless.enable = true;
+  hardware.keyboard.qmk.enable = true;
 
   # disable the wait online service, as it has started causing switch rebuild to fail
   # for more info see: https://github.com/NixOS/nixpkgs/issues/180175
@@ -110,8 +111,6 @@
           main = {
             # Tap for ESC, hold for altgr
             capslock = "overload(altgr, esc)";
-            # Disable right alt for now, to encourage use of capslock
-            rightalt = "noop";
           };
         };
       };

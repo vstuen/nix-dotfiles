@@ -77,6 +77,7 @@ in
 
       vlc
       libation # Audible audiobook manager
+      vial # keyboard configuration software
 
       copyq # clipboard manager
       pavucontrol # pulse audio volume control
