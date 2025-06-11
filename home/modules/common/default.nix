@@ -129,7 +129,7 @@ in
 
       # Fonts
       font-awesome
-      (nerdfonts.override { fonts = [ "FiraCode" ]; })
+      nerd-fonts.fira-code
 
       # Custom packages
       prospect_mail # outlook for web electron wrapper
