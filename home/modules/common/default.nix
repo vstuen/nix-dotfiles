@@ -44,7 +44,6 @@ in
   # release notes.
   home.stateVersion = "24.05"; # Please read the comment before changing.
 
-
   fonts.fontconfig.enable = true;
 
   home.packages =
@@ -125,7 +124,7 @@ in
       nixpkgs-fmt
       nixfmt-rfc-style
       gcc
-      qrencode  # QR code generator
+      qrencode # QR code generator
 
       # Fonts
       font-awesome
@@ -154,7 +153,7 @@ in
         bruno # local postman alternative
         eksctl # need unstable version to get newest k8s versions
 
-        # Gamedev 
+        # Gamedev
         godot
 
         (azure-cli.withExtensions [
