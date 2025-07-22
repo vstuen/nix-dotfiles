@@ -172,9 +172,10 @@ in
     ];
   };
 
-  programs.bat.enable = true;
-  programs.k9s.enable = true;
-  programs.lazygit.enable = true;
+  programs.bat.enable = true; # cat replacement with syntax highlighting
+  programs.k9s.enable = true; # terminal k8s client
+  programs.lazygit.enable = true; # terminal git client
+  programs.visidata.enable = true; # terminal spreadsheet viewer
 
   services.remmina.enable = true;
 
