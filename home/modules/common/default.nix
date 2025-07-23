@@ -148,6 +148,7 @@ in
         slack # want the latest version
         obsidian # markdown notes
         anytype # local-first, source-available PKM
+        signal-desktop # messaging app
 
         ## Dev
         bruno # local postman alternative
