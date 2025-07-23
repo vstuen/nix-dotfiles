@@ -9,7 +9,6 @@
     ./treesitter.nix
   ];
   programs.nixvim = {
-    colorschemes.catppuccin.enable = true;
 
     # The performance option is not supported for 24.05
     performance.combinePlugins.standalonePlugins = [

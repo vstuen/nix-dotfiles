@@ -17,9 +17,6 @@
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
-    catppuccin = {
-      url = "github:catppuccin/nix";
-    };
     nixvim = {
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
@@ -54,7 +51,6 @@
           inherit system;
           modules = [
             ./nixos/hosts/vs-nixtop
-            inputs.catppuccin.nixosModules.catppuccin
           ];
           specialArgs = {
             inherit pkgs-unstable username;
@@ -69,7 +65,6 @@
           inherit system;
           modules = [
             ./nixos/hosts/vs-worktop
-            inputs.catppuccin.nixosModules.catppuccin
           ];
           specialArgs = {
             inherit pkgs-unstable username;
@@ -84,7 +79,6 @@
           inherit system;
           modules = [
             ./nixos/hosts/vs-nixbox
-            inputs.catppuccin.nixosModules.catppuccin
           ];
           specialArgs = {
             inherit pkgs-unstable username;

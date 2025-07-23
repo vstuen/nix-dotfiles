@@ -246,12 +246,6 @@
     allowPing = true;
   };
 
-  # Catppuccin
-  catppuccin = {
-    flavor = "mocha";
-    enable = true;
-  };
-
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;

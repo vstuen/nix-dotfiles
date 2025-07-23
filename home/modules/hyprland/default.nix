@@ -39,7 +39,6 @@
 
   ### Additional programs
   programs.waybar.enable = true; # status bar
-  catppuccin.waybar.mode = "createLink";
   programs.hyprlock.enable = true; # screen locker
 
   # Rofi
@@ -56,7 +55,6 @@
     ];
     theme = lib.mkForce "rounded-nord-dark"; # Override catppuccin attribute
   };
-  catppuccin.rofi.enable = false;
 
   # Notification daemon
   services.mako = {

@@ -5,7 +5,6 @@
     package = pkgs.vscode.fhs;
     profiles.default = {
       extensions = with pkgs.vscode-extensions; [
-        catppuccin.catppuccin-vsc
         github.copilot
         github.copilot-chat
         jnoortheen.nix-ide
@@ -21,7 +20,6 @@
 
       userSettings = {
         "explorer.confirmDelete" = false;
-        "workbench.colorTheme" = "Catppuccin Mocha";
         "editor.fontFamily" = "'FiraCode Nerd Font Mono', 'monospace', monospace";
       };
     };

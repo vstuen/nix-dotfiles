@@ -19,7 +19,6 @@ let
 in
 {
   imports = [
-    inputs.catppuccin.homeModules.catppuccin
     ../nvim
     ../vscode
     ../fish
@@ -243,12 +242,6 @@ in
         # "global:ctrl+super+enter=toggle_quick_terminal"
       ];
     };
-  };
-
-  # Catppuccin
-  catppuccin = {
-    flavor = "mocha";
-    enable = true;
   };
 
   ### Config files
