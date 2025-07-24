@@ -1,4 +1,8 @@
 { pkgs, ... }: {
+  imports = [
+    ./theme.nix
+  ];
+
   programs.gnome-shell = {
     enable = true;
     extensions = map (str: { package = pkgs.gnomeExtensions.${str}; }) [
