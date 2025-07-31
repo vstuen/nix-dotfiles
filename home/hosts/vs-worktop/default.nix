@@ -10,6 +10,7 @@
 
       # dev
       jetbrains.rust-rover
+      jetbrains.rider
   ];
 
   programs.fish.shellAliases = {
