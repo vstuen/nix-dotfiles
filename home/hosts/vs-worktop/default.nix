@@ -3,6 +3,7 @@
     ../../modules/common
     ../../modules/gnome
     ../../modules/razerkb
+    ../../modules/dotnet-dev
   ];
 
   home.packages = with pkgs; [
@@ -10,7 +11,6 @@
 
       # dev
       jetbrains.rust-rover
-      jetbrains.rider
   ];
 
   programs.fish.shellAliases = {
