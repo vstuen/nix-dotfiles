@@ -118,7 +118,6 @@ in
       # Dev
       jetbrains.idea-ultimate
       jetbrains.datagrip
-      jetbrains.rust-rover
       android-studio
       nixpkgs-fmt
       nixfmt-rfc-style

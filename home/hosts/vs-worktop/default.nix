@@ -7,6 +7,9 @@
 
   home.packages = with pkgs; [
       zoom-us # zoom client
+
+      # dev
+      jetbrains.rust-rover
   ];
 
   programs.fish.shellAliases = {
