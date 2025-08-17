@@ -22,7 +22,7 @@
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
     vstuen-scripts = {
-      url = "path:./home/modules/scripts";
+      url = "path:./home/modules/scripts"; 
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -108,7 +108,7 @@
         };
 
         "vegard@vs-nixbox" = hmlib.homeManagerConfiguration {
-          pkgs = pkgs-unstable;
+          pkgs = pkgs;
           modules = [ ./home/hosts/vs-nixbox ];
           extraSpecialArgs = {
             inherit inputs pkgs-unstable username vstuen-scripts;
