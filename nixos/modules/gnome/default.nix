@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, lib, ... }:
+{
   services.xserver.enable = true;
   services.xserver.displayManager.gdm = {
     enable = true;
@@ -7,6 +8,14 @@
   services.xserver.desktopManager.gnome.enable = true;
   hardware.pulseaudio.enable = false;
 
+  ## SSH Agent
+  services.gnome.gnome-keyring.enable = true;
+  services.gnome.gcr-ssh-agent.enable = true;
+
+  # make sure the classic agent is OFF everywhere
+  programs.ssh.startAgent = lib.mkForce false;
+
+  ## Package excludes
   environment.gnome.excludePackages = with pkgs; [
     orca
     # evince
