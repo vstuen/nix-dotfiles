@@ -16,6 +16,7 @@
         ms-vscode-remote.remote-ssh
         tailscale.vscode-tailscale
         tamasfe.even-better-toml
+        bierner.markdown-mermaid
       ];
 
       userSettings = {
