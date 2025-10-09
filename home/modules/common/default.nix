@@ -151,6 +151,7 @@ in
         ## Dev
         bruno # local postman alternative
         eksctl # need unstable version to get newest k8s versions
+        kiro # IDE for Agentic AI workflows based on VS Code
 
         # Gamedev
         godot
