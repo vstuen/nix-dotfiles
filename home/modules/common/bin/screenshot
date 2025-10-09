@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# bash -c "grim - | satty --filename - --initial-tool crop --fullscreen --output-filename ~/Pictures/Screenshots/satty-$(date "+%Y%m%d-%H:%M:%S").png"
+
+ACTIVE_MONITOR=$(hyprctl monitors -j | jq -r '.[] | select(.focused)')
+CURRENT_OUTPUT=$(echo $ACTIVE_MONITOR | jq -r .name)
+
+echo CURRENT OUTPUT: $CURRENT_OUTPUT
+
+grim -l 0 -t ppm -o $CURRENT_OUTPUT - | satty --filename - --initial-tool crop --fullscreen --copy-command ~/.local/scripts/screenshot-copy-command.sh --output-filename ~/Pictures/Screenshots/satty-$(date "+%Y%m%d-%H:%M:%S").png

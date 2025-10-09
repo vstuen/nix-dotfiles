@@ -1,0 +1,12 @@
+[general]
+# Select the tool on startup [possible values: pointer, crop, line, arrow, rectangle, text, marker, blur, brush]
+initial-tool = "crop"
+
+# Exit directly after copy/save action
+early-exit = true
+
+# Configure the command to be called on copy, for example `wl-copy`
+copy-command = "wl-copy -t image/png"
+
+# Filename to use for saving action. Omit to disable saving to file. Might contain format specifiers: https://docs.rs/chrono/latest/chrono/format/strftime/index.html
+output-filename = "$HOME/Pictures/Screenshots/satty-%Y-%m-%d_%H:%M:%S.png"

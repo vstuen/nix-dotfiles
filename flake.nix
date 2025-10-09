@@ -1,0 +1,102 @@
+{
+  inputs = {
+    nixpkgs = {
+      url = "nixpkgs/nixos-24.11";
+    };
+    nixpkgs-unstable = {
+      url = "nixpkgs/nixos-unstable";
+    };
+    
+    home-manager = {
+      url = "github:nix-community/home-manager/release-24.11";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    zen-browser = {
+      url = "github:0xc000022070/zen-browser-flake";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
+
+    catppuccin = {
+      url = "github:catppuccin/nix";
+    };
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
+    vstuen-scripts = {
+      url = "path:./home/modules/scripts";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+  };
+
+  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, vstuen-scripts, ... }@inputs:
+    let
+      lib = nixpkgs.lib;
+      system = "x86_64-linux";
+      pkgs = import nixpkgs {
+        inherit system;
+        config = { allowUnfree = true; };
+      };
+      pkgs-unstable = import nixpkgs-unstable {
+        inherit system;
+        config = { allowUnfree = true; };
+      };
+      hmlib = home-manager.lib;
+      username = "vegard";
+
+    in
+    {
+
+      nixosConfigurations = {
+        vs-nixtop = lib.nixosSystem {
+          inherit system;
+          modules = [
+            ./nixos/hosts/vs-nixtop
+            inputs.catppuccin.nixosModules.catppuccin
+          ];
+          specialArgs = {
+            inherit pkgs-unstable username;
+            customHostConfig = {
+              hostName = "vs-nixtop";
+              hostId = "f404a8c2";
+            };
+          };
+        };
+
+        vs-worktop = lib.nixosSystem {
+          inherit system;
+          modules = [
+            ./nixos/hosts/vs-worktop
+            inputs.catppuccin.nixosModules.catppuccin
+          ];
+          specialArgs = {
+            inherit pkgs-unstable username;
+            customHostConfig = {
+              hostName = "vs-worktop";
+              hostId = "b74f5312";
+            };
+          };
+        };
+      };
+
+      homeConfigurations = {
+        "vegard@vs-nixtop" = hmlib.homeManagerConfiguration {
+          inherit pkgs;
+          modules = [ ./home/hosts/vs-nixtop ];
+          extraSpecialArgs = {
+            inherit inputs pkgs-unstable username vstuen-scripts;
+          };
+        };
+
+        "vegard@vs-worktop" = hmlib.homeManagerConfiguration {
+          inherit pkgs;
+          modules = [ ./home/hosts/vs-worktop ];
+          extraSpecialArgs = {
+            inherit inputs pkgs-unstable username vstuen-scripts;
+          };
+        };
+      };
+
+    };
+}
