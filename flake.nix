@@ -61,7 +61,7 @@
           };
         };
 
-        vs-worktop = lib.nixosSystem {
+        vs-worktop = unstable-lib.nixosSystem {
           inherit system;
           modules = [
             ./nixos/hosts/vs-worktop

@@ -3,7 +3,8 @@
     ./zfs.nix
     ./hardware.nix
     ../../modules/common
-    ../../modules/gnome
+    # ../../modules/gnome  # replaced by cosmic desktop
+    ../../modules/cosmic
   ];
 
   hardware.openrazer.enable = true;
