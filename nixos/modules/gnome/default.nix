@@ -6,11 +6,9 @@
     wayland = true;
   };
   services.xserver.desktopManager.gnome.enable = true;
-  hardware.pulseaudio.enable = false;
+  services.pulseaudio.enable = false;
 
-  ## SSH Agent
   services.gnome.gnome-keyring.enable = true;
-  services.gnome.gcr-ssh-agent.enable = true;
 
   # make sure the classic agent is OFF everywhere
   programs.ssh.startAgent = lib.mkForce false;
