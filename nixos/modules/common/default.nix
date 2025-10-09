@@ -23,6 +23,10 @@
     extraOptions = ''
       experimental-features = nix-command flakes
     '';
+    settings = {
+      # Increase download buffer to avoid warnings during large downloads
+      download-buffer-size = 268435456; # 256 MB (default is usually 64 MB)
+    };
   };
 
   # Use the systemd-boot EFI boot loader.
