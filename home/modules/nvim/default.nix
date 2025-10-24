@@ -1,6 +1,6 @@
 { inputs, pkgs-unstable, ... }: {
   imports = [
-    inputs.nixvim.homeManagerModules.nixvim
+    inputs.nixvim.homeModules.nixvim
     ./plugins
     ./keymap.nix
     ./options.nix
