@@ -34,8 +34,8 @@
       gs = "git status";
       ga = "git add";
       gc = "git commit";
-      gp = "git push";
-      gP = "git pull";
+      gp = "git pull";
+      gP = "git push";
       gf = "git fetch";
       gl = "git log";
       glo = "git log --oneline";
