@@ -15,6 +15,7 @@
 {
   imports = [
     ../docker
+    ../1password
   ];
 
   # Enable support for Flakes
@@ -184,23 +185,6 @@
         exec ${pkgs.fish}/bin/fish $LOGIN_OPTION
       fi
     '';
-  };
-
-  # 1Password
-  programs._1password.enable = true;
-  programs._1password-gui = {
-    enable = true;
-    package = pkgs-unstable._1password-gui;
-    polkitPolicyOwners = [ username ];
-  };
-  
-  environment.etc = {
-    "1password/custom_allowed_browsers" = {
-      text = ''
-        .zen-wrapped
-      '';
-      mode = "0755";
-    };
   };
 
   programs.appgate-sdp.enable = true;
